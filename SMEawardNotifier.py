@@ -39,14 +39,12 @@ try:
 			bot.sendMessage(chat_id=chat_id, text='ongoing changed' + '\n' + str_ongoing)
 		else:
 			bot.sendMessage(chat_id=chat_id, text='ongoing unchanged' + '\n' + str_ongoing)
-		f1.close()
 except FileNotFoundError :
 	bot.sendMessage(chat_id=chat_id, text='ongoing' + '\n' + str_ongoing)
 
 
 with open(os.path.join(BASE_DIR, 'latest_ongoing.txt'), 'w') as f2:
 	f2.write(str_ongoing)
-	f2.close()
 
 
 try:
@@ -56,12 +54,10 @@ try:
 			bot.sendMessage(chat_id=chat_id, text='upcoming changed' + '\n' + str_upcoming)
 		else:
 			bot.sendMessage(chat_id=chat_id, text='upcoming unchanged' + '\n' + str_upcoming)
-		f3.close()
 except FileNotFoundError :
 	bot.sendMessage(chat_id=chat_id, text='upcoming' + '\n' + str_upcoming)
 
 
 with open(os.path.join(BASE_DIR, 'latest_upcoming.txt'), 'w') as f4:
 	f4.write(str_upcoming)
-	f4.close()
 
